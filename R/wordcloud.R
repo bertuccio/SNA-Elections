@@ -1,20 +1,25 @@
-library(doBy)
+
+
+
+# install.packages("doBy")
+# install.packages("tm")
+# install.packages("SnowballC")
+# install.packages("RColorBrewer")
+# install.packages("plyr")
+# install.packages("ggplot2")
+# install.packages("wordcloud")
 
 # Load
-library("tm")
-library("SnowballC")
-library("wordcloud")
-library("RColorBrewer")
-library("irlba")
-library("plyr")
+library(tm)
+library(SnowballC)
+library(wordcloud2)
+library(RColorBrewer)
+# library(irlba)
+library(plyr)
 library(ggplot2) 
-
-podemos_text <- readLines("C:/Users/pinwi/Desktop/castells_final/sent_quote_podemos.csv", encoding = "UTF-8")
-ciudadanos_text <- readLines("C:/Users/pinwi/Desktop/castells_final/sent_quote_ciudadanos.csv", encoding = "UTF-8")
-pp_text <- readLines("C:/Users/pinwi/Desktop/castells_final/sent_quote_pp.csv", encoding = "UTF-8")
-psoe_text <- readLines("C:/Users/pinwi/Desktop/castells_final/sent_quote_psoe.csv", encoding = "UTF-8")
-iu_text <- readLines("C:/Users/pinwi/Desktop/castells_final/sent_quote_iu.csv", encoding = "UTF-8")
-upyd_text <- readLines("C:/Users/pinwi/Desktop/castells_final/sent_quote_upyd.csv", encoding = "UTF-8")
+# library(doBy)
+setwd("/home/pinwi/workspace/SNAElections/R/")
+tweets_text <- read.csv("../resources/tweets_out.csv",sep = ",")
 
 clean.text = function(txtclean)
 {
@@ -26,14 +31,14 @@ clean.text = function(txtclean)
   txtclean = gsub("#\\S+", " ", txtclean)
   # remueve links
   txtclean = gsub("htt\\S+", " ", txtclean)
-  # remueve simbolos de puntuaciÃÂ³n
+  # remueve simbolos de puntuacion
   txtclean = gsub("\\n", " ", txtclean,fixed = TRUE)
-  # remueve simbolos de puntuaciÃÂ³n
+  # remueve simbolos de puntuacion
   txtclean = gsub("\\r", " ", txtclean,fixed = TRUE)
-  # remueve simbolos de puntuaciÃÂ³n
+  # remueve simbolos de puntuacion
   txtclean = gsub("\\t", " ", txtclean,fixed = TRUE)
   txtclean = gsub("[^[:alnum:][:space:]']", " ", txtclean)
-  # remove nÃÂºmerosa
+  # remove numeros
   txtclean = gsub("[[:digit:]]", " ", txtclean)
   
   # remove blank spaces at the beginning
@@ -45,43 +50,12 @@ clean.text = function(txtclean)
 }
 
 
-podemos_clean = clean.text(podemos_text)
-ciudadanos_clean = clean.text(ciudadanos_text)
-pp_clean = clean.text(pp_text)
-psoe_clean = clean.text(psoe_text)
-iu_clean = clean.text(iu_text)
-upyd_clean = clean.text(upyd_text)
+tweets_text = clean.text(tweets_text$text)
 
 
-
-write.csv(podemos_clean,"gen_quot_podemos_clean.csv")
-write.csv(ciudadanos_clean,"gen_quot_ciudadanos_clean.csv")
-write.csv(pp_clean,"gen_quot_pp_clean.csv")
-write.csv(psoe_clean,"gen_quot_psoe_clean.csv")
-write.csv(iu_clean,"gen_quot_iu_clean.csv")
-write.csv(upyd_clean,"gen_quot_upyd_clean.csv")
-# podemos = paste(podemos_clean, collapse=" ")
-# ciudadanos = paste(ciudadanos_clean, collapse=" ")
-# 
-# all = c(podemos, ciudadanos)
-
-
-podemos = paste(podemos_clean, collapse=" ")
-ciudadanos = paste(ciudadanos_clean, collapse=" ")
-pp = paste(pp_clean, collapse=" ")
-psoe = paste(psoe_clean, collapse=" ")
-iu = paste(iu_clean, collapse=" ")
-upyd = paste(upyd_clean, collapse=" ")
-sw <- readLines("stopwords.cat.txt",encoding = "UTF-8")
-all = c(podemos, ciudadanos,pp,psoe,iu,upyd)
 # create corpus
-corpus = Corpus(VectorSource(all))
+corpus = Corpus(VectorSource(tweets_text))
 # carga archivo de palabras vacÃï¿½as personalizada y lo convierte a ASCII
-sw2 <- readLines("tabu.txt",encoding = "UTF-8")
-sw2 = iconv(sw, to="ASCII//TRANSLIT")
-# # remueve palabras vacÃï¿½as personalizada
-corpus <- tm_map(corpus, removeWords, sw2)
-corpus <- tm_map(corpus, removeWords, sw)
 
 
 # Convert the text to lower case
@@ -90,30 +64,9 @@ corpus <- tm_map(corpus, content_transformer(tolower))
 # Remove numbers
 corpus <- tm_map(corpus, removeNumbers)
 
-# # Remove spanish common stopwords
-corpus <- tm_map(corpus, removeWords, stopwords("spanish"))
-
-
-
-corpus <- tm_map(corpus, removeWords, c("vota","candidato","campa�a","hoy","elecciones"))
-
 corpus <- tm_map(corpus, removeWords, stopwords("english"))
 
-corpus <- tm_map(corpus, removeWords, c("d�a","ahora","partidos","vot","aquest","meu","vots","votat","per","jornada","reflexió"))
-
-
-corpus <- tm_map(corpus, removeWords, c("vot","aquest","meu"))
-corpus <- tm_map(corpus, removeWords, c("vota","candidato","campa�a","hoy","elecciones"))
-corpus <- tm_map(corpus, removeWords, c("dia","d�a","ahora","partidos"))
-corpus <- tm_map(corpus, removeWords, c("vot","aquest","catalu�a"))
-corpus <- tm_map(corpus, removeWords, c("jornada","reflexi�","eis","vots","ens","auvi"))
-corpus <- tm_map(corpus, removeWords, c("per","diumenge","dem�","tothom","amb","avui"))
-corpus <- tm_map(corpus, removeWords, c("votar","catalunya","catalonia","participaci�","votado","participaci�n"))
-corpus <- tm_map(corpus, removeWords, c("momento","catalans","pels","pot","voto","votat","vote","gr�cies"))
-
-# 
-# # Remove english common stopwords
-# corpus <- tm_map(corpus, removeWords, stopwords("english"))
+corpus <- tm_map(corpus, removeWords, c("elections","election"))
 
 
 # Remove punctuations
@@ -122,7 +75,7 @@ corpus <- tm_map(corpus, removePunctuation)
 # Eliminate extra white spaces
 corpus <- tm_map(corpus, stripWhitespace)
 
-
+# tdm = TermDocumentMatrix(corpus, control = list(removePunctuation = TRUE,stopwords = c("machine", "learning", stopwords("english")), removeNumbers = TRUE, tolower = TRUE))
 # create term-document matrix
 dtm = TermDocumentMatrix(corpus)
 

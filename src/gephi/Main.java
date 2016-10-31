@@ -1,15 +1,16 @@
 package gephi;
 
-
-
 import gephi.iomanagers.ExportManager;
 import gephi.iomanagers.ImportManager;
 import gephi.layout.ForceAtlas2Layout;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import org.gephi.graph.api.DirectedGraph;
@@ -46,26 +47,24 @@ import org.gephi.filters.api.Range;
 import org.gephi.filters.plugin.graph.DegreeRangeBuilder.DegreeRangeFilter;
 import org.gephi.graph.api.Column;
 
-
 public class Main {
-	
+
 	private static Logger logger = Logger.getLogger(Main.class);
 
-
 	public static void main(String[] args) {
-		
 
-		
 		boolean pdfExportArg = false;
 		boolean gfxExportArg = false;
 		boolean pngExportArg = false;
 		boolean filterDegree = false;
 
+		String filename = "retweet";
+
 		// Time
 		long startTime;
 		long stopTime;
 		long elapsedTime;
-		
+
 		String log4jConfPath = "resources/log4j.properties";
 		PropertyConfigurator.configure(log4jConfPath);
 
@@ -81,17 +80,25 @@ public class Main {
 			case "-gfx":
 				gfxExportArg = true;
 				break;
-			case "-filterDegree":
+			case "-filter":
 				filterDegree = true;
 				break;
-
+			case "hashtag":
+				filename = args[i];
+				break;
+			case "retweet":
+				filename = args[i];
+				break;
+			case "quote":
+				filename = args[i];
+				break;
 			}
 		}
-	
 
 		// Init a project - and therefore a workspace
 		ProjectController pc = Lookup.getDefault().lookup(ProjectController.class);
 		pc.newProject();
+
 		Workspace workspace = pc.getCurrentWorkspace();
 
 		// Get controllers and models
@@ -99,9 +106,10 @@ public class Main {
 		AppearanceModel appearanceModel = appearanceController.getModel();
 		GraphModel graphModel = Lookup.getDefault().lookup(GraphController.class).getGraphModel();
 
-
 		try {
-			ImportManager.importFile("process_retweet_out.csv", EdgeDirectionDefault.DIRECTED, true, workspace);
+			ImportManager.importFile("process_" + filename + "_out.csv", EdgeDirectionDefault.DIRECTED, true,
+					workspace);
+
 		} catch (FileNotFoundException e) {
 			System.out.println(e);
 			return;
@@ -135,7 +143,6 @@ public class Main {
 			logger.debug("Part: " + part + " Percent: " + partition.percentage(part) + "%");
 		}
 
-
 		ForceAtlas2Layout f2 = new ForceAtlas2Layout();
 		startTime = System.currentTimeMillis();
 		f2.runLayout(graphModel, 150);
@@ -159,10 +166,10 @@ public class Main {
 		elapsedTime = stopTime - startTime;
 		logger.debug("Preview Elapsed Time: " + elapsedTime * 0.001);
 
-		 //Filter, remove degree < 10
-		 
+		// Filter, remove degree < 10
+
 		if (filterDegree) {
-			
+
 			FilterController filterController = Lookup.getDefault().lookup(FilterController.class);
 			DegreeRangeFilter degreeFilter = new DegreeRangeFilter();
 			degreeFilter.setRange(new Range(10, Integer.MAX_VALUE));
@@ -194,21 +201,21 @@ public class Main {
 
 		if (gfxExportArg) {
 			startTime = System.currentTimeMillis();
-			ExportManager.gfxExport("io_gexf", workspace, true);
+			ExportManager.gfxExport("io_gexf_" + filename, workspace, true);
 			stopTime = System.currentTimeMillis();
 			elapsedTime = stopTime - startTime;
 			logger.debug("GFX Export Elapsed Time: " + elapsedTime * 0.001);
 		}
 		if (pngExportArg) {
 			startTime = System.currentTimeMillis();
-			ExportManager.pngExport("file", 10384, 10384, workspace);
+			ExportManager.pngExport("io_png_" + filename, 10384, 10384, workspace);
 			stopTime = System.currentTimeMillis();
 			elapsedTime = stopTime - startTime;
 			logger.debug("PNG Export Elapsed Time: " + elapsedTime * 0.001);
 		}
 		if (pdfExportArg) {
 			startTime = System.currentTimeMillis();
-			ExportManager.pdfExport("file", PageSize.A0);
+			ExportManager.pdfExport("io_png_" + filename, PageSize.A0);
 			stopTime = System.currentTimeMillis();
 			elapsedTime = stopTime - startTime;
 			logger.debug("PDF Export Elapsed Time: " + elapsedTime);

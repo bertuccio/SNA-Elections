@@ -23,8 +23,7 @@ public class ImportManager {
 			Workspace workspace) throws FileNotFoundException {
 
 		Container container;
-		File f = new File("resources/" + file);
-		
+		File f = new File("resources/csv/" + file);
 		container = importController.importFile(f);
 		
 		container.getLoader().setEdgeDefault(edgeDirection); 

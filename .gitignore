@@ -1,7 +1,9 @@
 lib/*.jar
 resources/*.db
+resources/csv/*
 bin/*
 resources/twitter4j.properties
 outputs/*
+resources/*.csv
 logs/*
 *.db

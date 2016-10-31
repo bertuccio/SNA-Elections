@@ -3,3 +3,5 @@ resources/*.db
 bin/*
 resources/twitter4j.properties
 outputs/*
+logs/*
+*.db

@@ -1,10 +1,4 @@
 #!/bin/bash
 
-while true;
-
-do
-
-	java -cp bin:lib/* stream.PrintFilterStream $* "";
-
-done;
-
+exec twitter.sh
+excec getGraph.sh

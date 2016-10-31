@@ -54,10 +54,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-//		Appender console = new FileAppender();
-//		logger.addAppender(console);
 
-//		BasicConfigurator.configure();
 		
 		boolean pdfExportArg = false;
 		boolean gfxExportArg = false;

@@ -94,7 +94,7 @@ public class Main {
 				break;
 			}
 		}
-
+		System.out.println("process_" + filename + "_out.csv");
 		// Init a project - and therefore a workspace
 		ProjectController pc = Lookup.getDefault().lookup(ProjectController.class);
 		pc.newProject();

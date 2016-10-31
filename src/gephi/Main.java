@@ -66,7 +66,6 @@ public class Main {
 		long stopTime;
 		long elapsedTime;
 		
-
 		String log4jConfPath = "resources/log4j.properties";
 		PropertyConfigurator.configure(log4jConfPath);
 

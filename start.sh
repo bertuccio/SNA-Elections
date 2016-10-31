@@ -1,4 +1,4 @@
 #!/bin/bash
 
-exec twitter.sh
-excec getGraph.sh
+./scripts/twitter.sh
+./scripts/getGraph.sh

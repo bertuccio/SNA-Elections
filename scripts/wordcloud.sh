@@ -1,4 +1,4 @@
 #!/bin/bash
 
-Rscript ../R/wordcloud.R
+Rscript R/wordcloud.R
 

@@ -3,7 +3,16 @@ cp twitterdb.db temp.db
 
 
 echo "Making hashtag list csv";
-sqlite3 -header -csv temp.db "SELECT '#' || replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace( lower(hashtag), 'á','a'), 'Á','a'), 'à','a'), 'À','a'), 'è','e'), 'é','e'), 'È','e'),'É','e'), 'Ì','i'),'í','i'),'Í','i'),'ì','i'),'ó','o') ,'ò','o'),'Ó','o') ,'Ò','o') ,'ú','u'), 'ù','u') ,'Ú','u'), 'Ù','u') as h, count(distinct(tweet_id)) as count from hashtags, tweets where tweet_id=tweets.id group by h order by count desc;" > resources/csv/hashtags_list.csv
+sqlite3 -csv temp.db "SELECT replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace( lower(hashtag), 'á','a'), 'Á','a'), 'à','a'), 'À','a'), 'è','e'), 'é','e'), 'È','e'),'É','e'), 'Ì','i'),'í','i'),'Í','i'),'ì','i'),'ó','o') ,'ò','o'),'Ó','o') ,'Ò','o') ,'ú','u'), 'ù','u') ,'Ú','u'), 'Ù','u') as h, count(distinct(tweet_id)) as count from hashtags, tweets where tweet_id=tweets.id group by h order by count desc;" > resources/csv/hashtags_list.csv
+
+hashtags=$(cut -d',' -f1 resources/csv/hashtags_list.csv | head -10 )
+
+
+for hashtag in $hashtags
+do
+	sqlite3 -csv -header temp.db "SELECT text from tweets, hashtags where replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace( lower(hashtag), 'á','a'), 'Á','a'), 'à','a'), 'À','a'), 'è','e'), 'é','e'), 'È','e'),'É','e'), 'Ì','i'),'í','i'),'Í','i'),'ì','i'),'ó','o') ,'ò','o'),'Ó','o') ,'Ò','o') ,'ú','u'), 'ù','u') ,'Ú','u'), 'Ù','u') like '$hashtag' and tweet_id=tweets.id;"  > resources/csv/hashtags/hashtags_list_$hashtag.csv
+
+done
 
 echo "Making tweet text csv";
 sqlite3 -header -csv temp.db "SELECT screen_name, text from tweets,users where user_id=users.id;" > resources/csv/tweets_out.csv

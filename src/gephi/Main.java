@@ -94,7 +94,7 @@ public class Main {
 				break;
 			}
 		}
-		System.out.println("process_" + filename + "_out.csv");
+		System.out.println("Importing csv : process_" + filename + "_out.csv");
 		// Init a project - and therefore a workspace
 		ProjectController pc = Lookup.getDefault().lookup(ProjectController.class);
 		pc.newProject();
@@ -119,6 +119,7 @@ public class Main {
 		logger.debug("Nodes: " + graph.getNodeCount());
 		logger.debug("Edges: " + graph.getEdgeCount());
 
+		System.out.println("Modularity Partition");
 		startTime = System.currentTimeMillis();
 		// Run modularity algorithm - community detection
 		Modularity modularity = new Modularity();
@@ -143,6 +144,7 @@ public class Main {
 			logger.debug("Part: " + part + " Percent: " + partition.percentage(part) + "%");
 		}
 
+		System.out.println("ForceAtlas2 Layout");
 		ForceAtlas2Layout f2 = new ForceAtlas2Layout();
 		startTime = System.currentTimeMillis();
 		f2.runLayout(graphModel, 150);
@@ -169,7 +171,8 @@ public class Main {
 		// Filter, remove degree < 10
 
 		if (filterDegree) {
-
+			
+			System.out.println("Filtering");
 			FilterController filterController = Lookup.getDefault().lookup(FilterController.class);
 			DegreeRangeFilter degreeFilter = new DegreeRangeFilter();
 			degreeFilter.setRange(new Range(10, Integer.MAX_VALUE));
@@ -200,6 +203,7 @@ public class Main {
 		}
 
 		if (gfxExportArg) {
+			System.out.println("Exporting GFX");
 			startTime = System.currentTimeMillis();
 			ExportManager.gfxExport("io_gexf_" + filename, workspace, true);
 			stopTime = System.currentTimeMillis();
@@ -207,6 +211,7 @@ public class Main {
 			logger.debug("GFX Export Elapsed Time: " + elapsedTime * 0.001);
 		}
 		if (pngExportArg) {
+			System.out.println("Exporting PNG");
 			startTime = System.currentTimeMillis();
 			ExportManager.pngExport("io_png_" + filename, 10384, 10384, workspace);
 			stopTime = System.currentTimeMillis();
@@ -214,6 +219,7 @@ public class Main {
 			logger.debug("PNG Export Elapsed Time: " + elapsedTime * 0.001);
 		}
 		if (pdfExportArg) {
+			System.out.println("Exporting PDF");
 			startTime = System.currentTimeMillis();
 			ExportManager.pdfExport("io_png_" + filename, PageSize.A0);
 			stopTime = System.currentTimeMillis();

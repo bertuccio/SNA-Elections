@@ -1,0 +1,404 @@
+2016-10-30 20:59:28 DEBUG Main:150 - Nodes: 94807
+2016-10-30 20:59:28 DEBUG Main:151 - Edges: 156394
+2016-10-30 21:00:13 DEBUG Main:170 - Modularity Partition Elapsed Time: 44.731
+2016-10-30 21:00:13 DEBUG Main:172 - 5474 partitions found
+2016-10-30 21:00:13 DEBUG Main:174 - Part: 1597 Percent: 17.127428%
+2016-10-30 21:00:13 DEBUG Main:174 - Part: 4591 Percent: 17.018785%
+2016-10-30 21:00:13 DEBUG Main:174 - Part: 5092 Percent: 5.1968737%
+2016-10-30 21:00:13 DEBUG Main:174 - Part: 4618 Percent: 4.9300156%
+2016-10-30 21:00:13 DEBUG Main:174 - Part: 4054 Percent: 4.076703%
+2016-10-30 21:00:13 DEBUG Main:174 - Part: 4784 Percent: 3.7718735%
+2016-10-30 21:00:13 DEBUG Main:174 - Part: 2815 Percent: 3.4048119%
+2016-10-30 21:00:13 DEBUG Main:174 - Part: 4545 Percent: 3.231829%
+2016-10-30 21:00:13 DEBUG Main:174 - Part: 3492 Percent: 2.8742604%
+2016-10-30 21:00:37 DEBUG Main:150 - Nodes: 94807
+2016-10-30 21:00:37 DEBUG Main:151 - Edges: 156394
+2016-10-30 21:01:56 DEBUG Main:170 - Modularity Partition Elapsed Time: 79.302
+2016-10-30 21:01:56 DEBUG Main:172 - 5481 partitions found
+2016-10-30 21:01:56 DEBUG Main:174 - Part: 2002 Percent: 18.088327%
+2016-10-30 21:01:56 DEBUG Main:174 - Part: 1747 Percent: 17.909016%
+2016-10-30 21:01:56 DEBUG Main:174 - Part: 4277 Percent: 5.625112%
+2016-10-30 21:01:56 DEBUG Main:174 - Part: 3946 Percent: 4.183235%
+2016-10-30 21:01:56 DEBUG Main:174 - Part: 3627 Percent: 2.8890274%
+2016-10-30 21:01:56 DEBUG Main:174 - Part: 2851 Percent: 2.477665%
+2016-10-30 21:01:56 DEBUG Main:174 - Part: 4609 Percent: 2.278313%
+2016-10-30 21:01:56 DEBUG Main:174 - Part: 3842 Percent: 2.2582722%
+2016-10-30 21:01:56 DEBUG Main:174 - Part: 4994 Percent: 2.24456%
+2016-10-30 21:03:57 DEBUG Main:195 - Layout Elapsed Time: 120.379
+2016-10-30 21:03:57 DEBUG Main:211 - Preview Elapsed Time: 0.014
+2016-10-30 21:03:57 DEBUG Main:242 - Node: CrowdFundGurus Degree: 2716 Class: 3627
+2016-10-30 21:03:57 DEBUG Main:242 - Node: Mbhokie97 Degree: 2142 Class: 3842
+2016-10-30 21:03:57 DEBUG Main:242 - Node: realDonaldTrump Degree: 1937 Class: 3565
+2016-10-30 21:03:57 DEBUG Main:242 - Node: Evan_McMullin Degree: 1649 Class: 4277
+2016-10-30 21:03:57 DEBUG Main:242 - Node: Darren32895836 Degree: 1565 Class: 1747
+2016-10-30 21:03:57 DEBUG Main:242 - Node: JaredWyand Degree: 1449 Class: 1747
+2016-10-30 21:03:57 DEBUG Main:242 - Node: minusthepretty Degree: 1362 Class: 5100
+2016-10-30 21:03:57 DEBUG Main:242 - Node: WDFx2EU7 Degree: 1290 Class: 1747
+2016-10-30 21:03:57 DEBUG Main:242 - Node: TEN_GOP Degree: 1276 Class: 1747
+2016-10-30 21:03:57 DEBUG Main:242 - Node: KeithOlbermann Degree: 1243 Class: 2002
+2016-10-30 21:03:57 DEBUG Main:242 - Node: kurteichenwald Degree: 1210 Class: 2002
+2016-10-30 21:03:57 DEBUG Main:242 - Node: mitchellvii Degree: 1150 Class: 4994
+2016-10-30 21:03:57 DEBUG Main:242 - Node: ObamaMalik Degree: 1144 Class: 4834
+2016-10-30 21:03:57 DEBUG Main:242 - Node: ddale8 Degree: 1087 Class: 4457
+2016-10-30 21:03:57 DEBUG Main:242 - Node: YASSR7_ Degree: 1070 Class: 2644
+2016-10-30 21:03:57 DEBUG Main:242 - Node: thelaynee Degree: 1062 Class: 3116
+2016-10-30 21:03:57 DEBUG Main:242 - Node: goldengateblond Degree: 1060 Class: 5005
+2016-10-30 21:03:57 DEBUG Main:242 - Node: DanScavino Degree: 958 Class: 3946
+2016-10-30 21:03:57 DEBUG Main:242 - Node: asamjulian Degree: 905 Class: 1747
+2016-10-30 21:03:57 DEBUG Main:242 - Node: LindaSuhler Degree: 746 Class: 1747
+2016-10-30 21:03:57 DEBUG Main:242 - Node: billmaher Degree: 711 Class: 2002
+2016-10-30 21:03:57 DEBUG Main:242 - Node: immigrant4trump Degree: 690 Class: 3946
+2016-10-30 21:03:57 DEBUG Main:242 - Node: PrisonPlanet Degree: 667 Class: 4547
+2016-10-30 21:03:57 DEBUG Main:242 - Node: SopanDeb Degree: 630 Class: 4277
+2016-10-30 21:03:57 DEBUG Main:242 - Node: iamrashidajones Degree: 620 Class: 3060
+2016-10-30 21:03:57 DEBUG Main:242 - Node: mckaycoppins Degree: 593 Class: 4277
+2016-10-30 21:03:57 DEBUG Main:242 - Node: MichaelDelauzon Degree: 578 Class: 1747
+2016-10-30 21:03:57 DEBUG Main:242 - Node: Stevenwhirsch99 Degree: 534 Class: 4299
+2016-10-30 21:03:57 DEBUG Main:242 - Node: JoyAnnReid Degree: 517 Class: 2002
+2016-10-30 21:03:57 DEBUG Main:242 - Node: KellyannePolls Degree: 517 Class: 3946
+2016-10-30 21:03:57 DEBUG Main:242 - Node: Pamela_Moore13 Degree: 517 Class: 1747
+2016-10-30 21:03:57 DEBUG Main:242 - Node: vivelafra Degree: 505 Class: 5009
+2016-10-30 21:03:57 DEBUG Main:242 - Node: bfraser747 Degree: 499 Class: 1747
+2016-10-30 21:03:57 DEBUG Main:242 - Node: magnifier661 Degree: 490 Class: 1747
+2016-10-30 21:03:57 DEBUG Main:242 - Node: Fahrenthold Degree: 483 Class: 2002
+2016-10-30 21:03:57 DEBUG Main:242 - Node: amjoyshow Degree: 466 Class: 2002
+2016-10-30 21:03:57 DEBUG Main:242 - Node: Bikers4Trump Degree: 455 Class: 2851
+2016-10-30 21:03:57 DEBUG Main:242 - Node: WeNeedTrump Degree: 445 Class: 1747
+2016-10-30 21:03:57 DEBUG Main:242 - Node: IngrahamAngle Degree: 438 Class: 3946
+2016-10-30 21:03:57 DEBUG Main:242 - Node: AJDelgado13 Degree: 430 Class: 1747
+2016-10-30 21:03:57 DEBUG Main:242 - Node: peterdaou Degree: 426 Class: 2002
+2016-10-30 21:03:57 DEBUG Main:242 - Node: AnnCoulter Degree: 404 Class: 4547
+2016-10-30 21:03:57 DEBUG Main:242 - Node: 0HOUR1__ Degree: 404 Class: 1747
+2016-10-30 21:03:57 DEBUG Main:242 - Node: Lrihendry Degree: 389 Class: 1747
+2016-10-30 21:03:57 DEBUG Main:242 - Node: JackPosobiec Degree: 379 Class: 4834
+2016-10-30 21:03:57 DEBUG Main:242 - Node: jemalhudso12111 Degree: 373 Class: 2851
+2016-10-30 21:03:57 DEBUG Main:242 - Node: ChatRevolve Degree: 367 Class: 1747
+2016-10-30 21:03:57 DEBUG Main:242 - Node: Cernovich Degree: 365 Class: 4994
+2016-10-30 21:03:57 DEBUG Main:242 - Node: mattmfm Degree: 362 Class: 4457
+2016-10-30 21:03:57 DEBUG Main:242 - Node: TeamTrump Degree: 359 Class: 3565
+2016-10-30 21:03:58 DEBUG Main:251 - GFX Export Elapsed Time: 1.218
+2016-10-30 21:04:08 DEBUG Main:258 - PNG Export Elapsed Time: 9.292
+2016-10-30 21:07:05 DEBUG Main:141 - Nodes: 94807
+2016-10-30 21:07:06 DEBUG Main:142 - Edges: 156394
+2016-10-30 21:17:14 DEBUG Main:115 - Nodes: 94807
+2016-10-30 21:17:14 DEBUG Main:116 - Edges: 156394
+2016-10-30 21:17:30 DEBUG Main:135 - Modularity Partition Elapsed Time: 15.148
+2016-10-30 21:17:30 DEBUG Main:137 - 5481 partitions found
+2016-10-30 21:17:30 DEBUG Main:139 - Part: 2002 Percent: 18.088327%
+2016-10-30 21:17:30 DEBUG Main:139 - Part: 1747 Percent: 17.909016%
+2016-10-30 21:17:30 DEBUG Main:139 - Part: 4277 Percent: 5.625112%
+2016-10-30 21:17:30 DEBUG Main:139 - Part: 3946 Percent: 4.183235%
+2016-10-30 21:17:30 DEBUG Main:139 - Part: 3627 Percent: 2.8890274%
+2016-10-30 21:17:30 DEBUG Main:139 - Part: 2851 Percent: 2.477665%
+2016-10-30 21:17:30 DEBUG Main:139 - Part: 4609 Percent: 2.278313%
+2016-10-30 21:17:30 DEBUG Main:139 - Part: 3842 Percent: 2.2582722%
+2016-10-30 21:17:30 DEBUG Main:139 - Part: 4994 Percent: 2.24456%
+2016-10-30 21:17:30 DEBUG Main:139 - Part: 4299 Percent: 2.240341%
+2016-10-30 21:17:30 DEBUG Main:139 - Part: 4547 Percent: 2.0030167%
+2016-10-30 21:17:30 DEBUG Main:139 - Part: 3565 Percent: 1.9365659%
+2016-10-30 21:17:30 DEBUG Main:139 - Part: 5100 Percent: 1.8521839%
+2016-10-30 21:17:30 DEBUG Main:139 - Part: 4834 Percent: 1.7920617%
+2016-10-30 21:17:30 DEBUG Main:139 - Part: 5005 Percent: 1.7361587%
+2016-10-30 21:17:30 DEBUG Main:139 - Part: 4457 Percent: 1.6454481%
+2016-10-30 21:17:30 DEBUG Main:139 - Part: 4620 Percent: 1.5325872%
+2016-10-30 21:17:30 DEBUG Main:139 - Part: 2196 Percent: 1.4070691%
+2016-10-30 21:17:30 DEBUG Main:139 - Part: 2644 Percent: 1.4060143%
+2016-10-30 21:19:13 DEBUG Main:148 - Layout Elapsed Time: 103.223
+2016-10-30 21:19:13 DEBUG Main:164 - Preview Elapsed Time: 0.013000000000000001
+2016-10-30 21:19:13 DEBUG Main:195 - Node: CrowdFundGurus Degree: 2716 Class: 3627
+2016-10-30 21:19:13 DEBUG Main:195 - Node: Mbhokie97 Degree: 2142 Class: 3842
+2016-10-30 21:19:13 DEBUG Main:195 - Node: realDonaldTrump Degree: 1937 Class: 3565
+2016-10-30 21:19:13 DEBUG Main:195 - Node: Evan_McMullin Degree: 1649 Class: 4277
+2016-10-30 21:19:13 DEBUG Main:195 - Node: Darren32895836 Degree: 1565 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: JaredWyand Degree: 1449 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: minusthepretty Degree: 1362 Class: 5100
+2016-10-30 21:19:13 DEBUG Main:195 - Node: WDFx2EU7 Degree: 1290 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: TEN_GOP Degree: 1276 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: KeithOlbermann Degree: 1243 Class: 2002
+2016-10-30 21:19:13 DEBUG Main:195 - Node: kurteichenwald Degree: 1210 Class: 2002
+2016-10-30 21:19:13 DEBUG Main:195 - Node: mitchellvii Degree: 1150 Class: 4994
+2016-10-30 21:19:13 DEBUG Main:195 - Node: ObamaMalik Degree: 1144 Class: 4834
+2016-10-30 21:19:13 DEBUG Main:195 - Node: ddale8 Degree: 1087 Class: 4457
+2016-10-30 21:19:13 DEBUG Main:195 - Node: YASSR7_ Degree: 1070 Class: 2644
+2016-10-30 21:19:13 DEBUG Main:195 - Node: thelaynee Degree: 1062 Class: 3116
+2016-10-30 21:19:13 DEBUG Main:195 - Node: goldengateblond Degree: 1060 Class: 5005
+2016-10-30 21:19:13 DEBUG Main:195 - Node: DanScavino Degree: 958 Class: 3946
+2016-10-30 21:19:13 DEBUG Main:195 - Node: asamjulian Degree: 905 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: LindaSuhler Degree: 746 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: billmaher Degree: 711 Class: 2002
+2016-10-30 21:19:13 DEBUG Main:195 - Node: immigrant4trump Degree: 690 Class: 3946
+2016-10-30 21:19:13 DEBUG Main:195 - Node: PrisonPlanet Degree: 667 Class: 4547
+2016-10-30 21:19:13 DEBUG Main:195 - Node: SopanDeb Degree: 630 Class: 4277
+2016-10-30 21:19:13 DEBUG Main:195 - Node: iamrashidajones Degree: 620 Class: 3060
+2016-10-30 21:19:13 DEBUG Main:195 - Node: mckaycoppins Degree: 593 Class: 4277
+2016-10-30 21:19:13 DEBUG Main:195 - Node: MichaelDelauzon Degree: 578 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: Stevenwhirsch99 Degree: 534 Class: 4299
+2016-10-30 21:19:13 DEBUG Main:195 - Node: JoyAnnReid Degree: 517 Class: 2002
+2016-10-30 21:19:13 DEBUG Main:195 - Node: KellyannePolls Degree: 517 Class: 3946
+2016-10-30 21:19:13 DEBUG Main:195 - Node: Pamela_Moore13 Degree: 517 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: vivelafra Degree: 505 Class: 5009
+2016-10-30 21:19:13 DEBUG Main:195 - Node: bfraser747 Degree: 499 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: magnifier661 Degree: 490 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: Fahrenthold Degree: 483 Class: 2002
+2016-10-30 21:19:13 DEBUG Main:195 - Node: amjoyshow Degree: 466 Class: 2002
+2016-10-30 21:19:13 DEBUG Main:195 - Node: Bikers4Trump Degree: 455 Class: 2851
+2016-10-30 21:19:13 DEBUG Main:195 - Node: WeNeedTrump Degree: 445 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: IngrahamAngle Degree: 438 Class: 3946
+2016-10-30 21:19:13 DEBUG Main:195 - Node: AJDelgado13 Degree: 430 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: peterdaou Degree: 426 Class: 2002
+2016-10-30 21:19:13 DEBUG Main:195 - Node: AnnCoulter Degree: 404 Class: 4547
+2016-10-30 21:19:13 DEBUG Main:195 - Node: 0HOUR1__ Degree: 404 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: Lrihendry Degree: 389 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: JackPosobiec Degree: 379 Class: 4834
+2016-10-30 21:19:13 DEBUG Main:195 - Node: jemalhudso12111 Degree: 373 Class: 2851
+2016-10-30 21:19:13 DEBUG Main:195 - Node: ChatRevolve Degree: 367 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: Cernovich Degree: 365 Class: 4994
+2016-10-30 21:19:13 DEBUG Main:195 - Node: mattmfm Degree: 362 Class: 4457
+2016-10-30 21:19:13 DEBUG Main:195 - Node: TeamTrump Degree: 359 Class: 3565
+2016-10-30 21:19:13 DEBUG Main:195 - Node: thehill Degree: 354 Class: 4609
+2016-10-30 21:19:13 DEBUG Main:195 - Node: AmyMek Degree: 349 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: DailyCaller Degree: 347 Class: 3946
+2016-10-30 21:19:13 DEBUG Main:195 - Node: LOLGOP Degree: 344 Class: 4620
+2016-10-30 21:19:13 DEBUG Main:195 - Node: CNN Degree: 341 Class: 4609
+2016-10-30 21:19:13 DEBUG Main:195 - Node: YoungDems4Trump Degree: 338 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: sarahkendzior Degree: 322 Class: 2002
+2016-10-30 21:19:13 DEBUG Main:195 - Node: HillaryClinton Degree: 318 Class: 2196
+2016-10-30 21:19:13 DEBUG Main:195 - Node: VivaLaAmes Degree: 313 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: PpollingNumbers Degree: 311 Class: 4994
+2016-10-30 21:19:13 DEBUG Main:195 - Node: aravosis Degree: 310 Class: 2002
+2016-10-30 21:19:13 DEBUG Main:195 - Node: SandraTXAS Degree: 308 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: KGBVeteran Degree: 305 Class: 3808
+2016-10-30 21:19:13 DEBUG Main:195 - Node: TheDailyEdge Degree: 303 Class: 2002
+2016-10-30 21:19:13 DEBUG Main:195 - Node: jonfavs Degree: 300 Class: 4620
+2016-10-30 21:19:13 DEBUG Main:195 - Node: cnnwriter69 Degree: 295 Class: 4547
+2016-10-30 21:19:13 DEBUG Main:195 - Node: Miami4Trump Degree: 292 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: MMFlint Degree: 288 Class: 2002
+2016-10-30 21:19:13 DEBUG Main:195 - Node: mmpadellan Degree: 285 Class: 2002
+2016-10-30 21:19:13 DEBUG Main:195 - Node: Rambobiggs Degree: 284 Class: 4834
+2016-10-30 21:19:13 DEBUG Main:195 - Node: washingtonpost Degree: 273 Class: 2196
+2016-10-30 21:19:13 DEBUG Main:195 - Node: RawStory Degree: 272 Class: 2002
+2016-10-30 21:19:13 DEBUG Main:195 - Node: KINGBenjo Degree: 272 Class: 5100
+2016-10-30 21:19:13 DEBUG Main:195 - Node: WesleyRickard Degree: 271 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: latinaafortrump Degree: 266 Class: 4834
+2016-10-30 21:19:13 DEBUG Main:195 - Node: activist360 Degree: 265 Class: 2002
+2016-10-30 21:19:13 DEBUG Main:195 - Node: SoCal4Trump Degree: 261 Class: 1747
+2016-10-30 21:19:13 DEBUG Main:195 - Node: AdamParkhomenko Degree: 260 Class: 4620
+2016-10-30 21:19:13 DEBUG Main:195 - Node: Khanoisseur Degree: 254 Class: 2002
+2016-10-30 21:19:14 DEBUG Main:204 - GFX Export Elapsed Time: 1.108
+2016-10-30 21:19:24 DEBUG Main:211 - PNG Export Elapsed Time: 9.42
+2016-10-30 22:58:43 DEBUG Main:115 - Nodes: 94807
+2016-10-30 22:58:43 DEBUG Main:116 - Edges: 156394
+2016-10-30 22:59:13 DEBUG Main:115 - Nodes: 130932
+2016-10-30 22:59:13 DEBUG Main:116 - Edges: 232550
+2016-10-30 22:59:44 DEBUG Main:135 - Modularity Partition Elapsed Time: 31.436
+2016-10-30 22:59:44 DEBUG Main:137 - 7098 partitions found
+2016-10-30 22:59:44 DEBUG Main:139 - Part: 4196 Percent: 25.080194%
+2016-10-30 22:59:44 DEBUG Main:139 - Part: 6742 Percent: 17.773348%
+2016-10-30 22:59:44 DEBUG Main:139 - Part: 3285 Percent: 4.659671%
+2016-10-30 22:59:44 DEBUG Main:139 - Part: 6037 Percent: 4.57413%
+2016-10-30 22:59:44 DEBUG Main:139 - Part: 4421 Percent: 2.9152536%
+2016-10-30 22:59:44 DEBUG Main:139 - Part: 3884 Percent: 2.9121988%
+2016-10-30 22:59:44 DEBUG Main:139 - Part: 4156 Percent: 2.7815967%
+2016-10-30 22:59:44 DEBUG Main:139 - Part: 3983 Percent: 2.5517063%
+2016-10-30 22:59:44 DEBUG Main:139 - Part: 4198 Percent: 1.9582683%
+2016-10-30 22:59:44 DEBUG Main:139 - Part: 4344 Percent: 1.8024623%
+2016-10-30 22:59:44 DEBUG Main:139 - Part: 4157 Percent: 1.706993%
+2016-10-30 22:59:44 DEBUG Main:139 - Part: 5861 Percent: 1.6321448%
+2016-10-30 22:59:44 DEBUG Main:139 - Part: 5415 Percent: 1.5305655%
+2016-10-30 22:59:44 DEBUG Main:139 - Part: 5568 Percent: 1.3969083%
+2016-10-30 22:59:44 DEBUG Main:139 - Part: 5400 Percent: 1.2151346%
+2016-10-30 22:59:44 DEBUG Main:139 - Part: 3098 Percent: 1.0600922%
+2016-10-30 22:59:44 DEBUG Main:139 - Part: 5678 Percent: 0.7859041%
+2016-10-30 22:59:44 DEBUG Main:139 - Part: 6372 Percent: 0.75382644%
+2016-10-30 22:59:44 DEBUG Main:139 - Part: 6346 Percent: 0.7347325%
+2016-10-30 22:59:44 DEBUG Main:139 - Part: 5773 Percent: 0.6484282%
+2016-10-30 23:02:00 DEBUG Main:148 - Layout Elapsed Time: 135.886
+2016-10-30 23:02:00 DEBUG Main:164 - Preview Elapsed Time: 0.093
+2016-10-30 23:02:01 DEBUG Main:195 - Node: Mbhokie97 Degree: 5517 Class: 6037
+2016-10-30 23:02:01 DEBUG Main:195 - Node: StylishRentals Degree: 3609 Class: 3884
+2016-10-30 23:02:01 DEBUG Main:195 - Node: CrowdFundGurus Degree: 2716 Class: 3884
+2016-10-30 23:02:01 DEBUG Main:195 - Node: realDonaldTrump Degree: 2297 Class: 4344
+2016-10-30 23:02:01 DEBUG Main:195 - Node: Evan_McMullin Degree: 2234 Class: 3285
+2016-10-30 23:02:01 DEBUG Main:195 - Node: Darren32895836 Degree: 2232 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: mitchellvii Degree: 1929 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: JaredWyand Degree: 1909 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: WDFx2EU7 Degree: 1883 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: KeithOlbermann Degree: 1717 Class: 6742
+2016-10-30 23:02:01 DEBUG Main:195 - Node: minusthepretty Degree: 1669 Class: 4157
+2016-10-30 23:02:01 DEBUG Main:195 - Node: TEN_GOP Degree: 1534 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: YASSR7_ Degree: 1525 Class: 5415
+2016-10-30 23:02:01 DEBUG Main:195 - Node: PrisonPlanet Degree: 1510 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: ObamaMalik Degree: 1479 Class: 4198
+2016-10-30 23:02:01 DEBUG Main:195 - Node: kurteichenwald Degree: 1472 Class: 6742
+2016-10-30 23:02:01 DEBUG Main:195 - Node: thelaynee Degree: 1392 Class: 5400
+2016-10-30 23:02:01 DEBUG Main:195 - Node: goldengateblond Degree: 1339 Class: 5861
+2016-10-30 23:02:01 DEBUG Main:195 - Node: ddale8 Degree: 1311 Class: 5568
+2016-10-30 23:02:01 DEBUG Main:195 - Node: asamjulian Degree: 1164 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: DanScavino Degree: 1149 Class: 4344
+2016-10-30 23:02:01 DEBUG Main:195 - Node: ananavarro Degree: 1125 Class: 6037
+2016-10-30 23:02:01 DEBUG Main:195 - Node: LindaSuhler Degree: 969 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: HillaryClinton Degree: 954 Class: 6742
+2016-10-30 23:02:01 DEBUG Main:195 - Node: immigrant4trump Degree: 904 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: iamrashidajones Degree: 895 Class: 6742
+2016-10-30 23:02:01 DEBUG Main:195 - Node: billmaher Degree: 844 Class: 3098
+2016-10-30 23:02:01 DEBUG Main:195 - Node: mckaycoppins Degree: 804 Class: 3285
+2016-10-30 23:02:01 DEBUG Main:195 - Node: thehill Degree: 796 Class: 3983
+2016-10-30 23:02:01 DEBUG Main:195 - Node: SopanDeb Degree: 788 Class: 6742
+2016-10-30 23:02:01 DEBUG Main:195 - Node: Fahrenthold Degree: 701 Class: 4156
+2016-10-30 23:02:01 DEBUG Main:195 - Node: WeNeedTrump Degree: 695 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: Stevenwhirsch99 Degree: 667 Class: 4421
+2016-10-30 23:02:01 DEBUG Main:195 - Node: bfraser747 Degree: 649 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: amjoyshow Degree: 644 Class: 6742
+2016-10-30 23:02:01 DEBUG Main:195 - Node: VivaLaAmes Degree: 634 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: magnifier661 Degree: 603 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: Pamela_Moore13 Degree: 598 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: AJDelgado13 Degree: 592 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: MichaelDelauzon Degree: 578 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: Cernovich Degree: 577 Class: 4198
+2016-10-30 23:02:01 DEBUG Main:195 - Node: KellyannePolls Degree: 576 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: 0HOUR1__ Degree: 571 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: AdamParkhomenko Degree: 568 Class: 6742
+2016-10-30 23:02:01 DEBUG Main:195 - Node: JoyAnnReid Degree: 566 Class: 6742
+2016-10-30 23:02:01 DEBUG Main:195 - Node: TeamTrump Degree: 559 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: vivelafra Degree: 551 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: Miami4Trump Degree: 551 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: PpollingNumbers Degree: 539 Class: 3285
+2016-10-30 23:02:01 DEBUG Main:195 - Node: CNN Degree: 534 Class: 3983
+2016-10-30 23:02:01 DEBUG Main:195 - Node: TheDailyEdge Degree: 534 Class: 6742
+2016-10-30 23:02:01 DEBUG Main:195 - Node: LOLGOP Degree: 512 Class: 6372
+2016-10-30 23:02:01 DEBUG Main:195 - Node: Bikers4Trump Degree: 496 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: peterdaou Degree: 494 Class: 6742
+2016-10-30 23:02:01 DEBUG Main:195 - Node: aravosis Degree: 487 Class: 6742
+2016-10-30 23:02:01 DEBUG Main:195 - Node: JackPosobiec Degree: 483 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: Lrihendry Degree: 480 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: sarahkendzior Degree: 470 Class: 4156
+2016-10-30 23:02:01 DEBUG Main:195 - Node: TrumpSuperPAC Degree: 465 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: IngrahamAngle Degree: 463 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: AnnCoulter Degree: 462 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: tponews Degree: 462 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: activist360 Degree: 446 Class: 6742
+2016-10-30 23:02:01 DEBUG Main:195 - Node: ChatRevolve Degree: 444 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: SoCal4Trump Degree: 440 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: mattmfm Degree: 434 Class: 5568
+2016-10-30 23:02:01 DEBUG Main:195 - Node: SandraTXAS Degree: 426 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: hectormorenco Degree: 423 Class: 6861
+2016-10-30 23:02:01 DEBUG Main:195 - Node: jemalhudso12111 Degree: 416 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: jonfavs Degree: 411 Class: 4156
+2016-10-30 23:02:01 DEBUG Main:195 - Node: DailyCaller Degree: 411 Class: 6346
+2016-10-30 23:02:01 DEBUG Main:195 - Node: KGBVeteran Degree: 409 Class: 3277
+2016-10-30 23:02:01 DEBUG Main:195 - Node: AmyMek Degree: 404 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: ScottAdamsSays Degree: 389 Class: 3277
+2016-10-30 23:02:01 DEBUG Main:195 - Node: YoungDems4Trump Degree: 386 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: KamVTV Degree: 376 Class: 4196
+2016-10-30 23:02:01 DEBUG Main:195 - Node: ABC Degree: 375 Class: 3983
+2016-10-30 23:02:01 DEBUG Main:195 - Node: imillhiser Degree: 371 Class: 5861
+2016-10-30 23:02:01 DEBUG Main:195 - Node: Rambobiggs Degree: 369 Class: 4198
+2016-10-30 23:02:02 DEBUG Main:204 - GFX Export Elapsed Time: 1.6580000000000001
+2016-10-30 23:02:14 DEBUG Main:211 - PNG Export Elapsed Time: 11.374
+2016-10-31 01:16:44 DEBUG Main:115 - Nodes: 130932
+2016-10-31 01:16:44 DEBUG Main:116 - Edges: 232550
+2016-10-31 01:17:13 DEBUG Main:135 - Modularity Partition Elapsed Time: 28.968
+2016-10-31 01:17:13 DEBUG Main:137 - 7084 partitions found
+2016-10-31 01:17:13 DEBUG Main:139 - Part: 3840 Percent: 23.668776%
+2016-10-31 01:17:13 DEBUG Main:139 - Part: 6729 Percent: 16.19543%
+2016-10-31 01:17:13 DEBUG Main:139 - Part: 3283 Percent: 5.5211864%
+2016-10-31 01:17:13 DEBUG Main:139 - Part: 2717 Percent: 4.5298324%
+2016-10-31 01:17:13 DEBUG Main:139 - Part: 3306 Percent: 4.00055%
+2016-10-31 01:17:13 DEBUG Main:139 - Part: 4363 Percent: 3.2711637%
+2016-10-31 01:17:13 DEBUG Main:139 - Part: 3883 Percent: 2.9121988%
+2016-10-31 01:17:13 DEBUG Main:139 - Part: 2321 Percent: 2.6418293%
+2016-10-31 01:17:13 DEBUG Main:139 - Part: 5542 Percent: 2.5662177%
+2016-10-31 01:17:13 DEBUG Main:139 - Part: 6338 Percent: 2.34091%
+2016-10-31 01:17:13 DEBUG Main:139 - Part: 4154 Percent: 1.7085204%
+2016-10-31 01:17:13 DEBUG Main:139 - Part: 4837 Percent: 1.46641%
+2016-10-31 01:17:13 DEBUG Main:139 - Part: 3286 Percent: 1.422876%
+2016-10-31 01:17:13 DEBUG Main:139 - Part: 6005 Percent: 1.4014908%
+2016-10-31 01:17:13 DEBUG Main:139 - Part: 5667 Percent: 1.1525067%
+2016-10-31 01:17:13 DEBUG Main:139 - Part: 6951 Percent: 1.1150826%
+2016-10-31 01:17:13 DEBUG Main:139 - Part: 5628 Percent: 0.85082334%
+2016-10-31 01:17:13 DEBUG Main:139 - Part: 5850 Percent: 0.71258366%
+2016-10-31 01:17:13 DEBUG Main:139 - Part: 3944 Percent: 0.6873797%
+2016-10-31 01:17:13 DEBUG Main:139 - Part: 6340 Percent: 0.6087129%
+2016-10-31 01:19:34 DEBUG Main:148 - Layout Elapsed Time: 140.889
+2016-10-31 01:19:34 DEBUG Main:164 - Preview Elapsed Time: 0.013000000000000001
+2016-10-31 01:19:35 DEBUG Main:195 - Node: Mbhokie97 Degree: 5517 Class: 2717
+2016-10-31 01:19:35 DEBUG Main:195 - Node: StylishRentals Degree: 3609 Class: 3883
+2016-10-31 01:19:35 DEBUG Main:195 - Node: CrowdFundGurus Degree: 2716 Class: 3883
+2016-10-31 01:19:35 DEBUG Main:195 - Node: realDonaldTrump Degree: 2297 Class: 6338
+2016-10-31 01:19:35 DEBUG Main:195 - Node: Evan_McMullin Degree: 2234 Class: 3306
+2016-10-31 01:19:35 DEBUG Main:195 - Node: Darren32895836 Degree: 2232 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: mitchellvii Degree: 1929 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: JaredWyand Degree: 1909 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: WDFx2EU7 Degree: 1883 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: KeithOlbermann Degree: 1717 Class: 6729
+2016-10-31 01:19:35 DEBUG Main:195 - Node: minusthepretty Degree: 1669 Class: 4154
+2016-10-31 01:19:35 DEBUG Main:195 - Node: TEN_GOP Degree: 1534 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: YASSR7_ Degree: 1525 Class: 4837
+2016-10-31 01:19:35 DEBUG Main:195 - Node: PrisonPlanet Degree: 1510 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: ObamaMalik Degree: 1479 Class: 2321
+2016-10-31 01:19:35 DEBUG Main:195 - Node: kurteichenwald Degree: 1472 Class: 6729
+2016-10-31 01:19:35 DEBUG Main:195 - Node: thelaynee Degree: 1392 Class: 6951
+2016-10-31 01:19:35 DEBUG Main:195 - Node: goldengateblond Degree: 1339 Class: 3286
+2016-10-31 01:19:35 DEBUG Main:195 - Node: ddale8 Degree: 1311 Class: 6005
+2016-10-31 01:19:35 DEBUG Main:195 - Node: asamjulian Degree: 1164 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: DanScavino Degree: 1149 Class: 6338
+2016-10-31 01:19:35 DEBUG Main:195 - Node: ananavarro Degree: 1125 Class: 2717
+2016-10-31 01:19:35 DEBUG Main:195 - Node: LindaSuhler Degree: 969 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: HillaryClinton Degree: 954 Class: 5667
+2016-10-31 01:19:35 DEBUG Main:195 - Node: immigrant4trump Degree: 904 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: iamrashidajones Degree: 895 Class: 6729
+2016-10-31 01:19:35 DEBUG Main:195 - Node: billmaher Degree: 844 Class: 3944
+2016-10-31 01:19:35 DEBUG Main:195 - Node: mckaycoppins Degree: 804 Class: 3306
+2016-10-31 01:19:35 DEBUG Main:195 - Node: thehill Degree: 796 Class: 5542
+2016-10-31 01:19:35 DEBUG Main:195 - Node: SopanDeb Degree: 788 Class: 3283
+2016-10-31 01:19:35 DEBUG Main:195 - Node: Fahrenthold Degree: 701 Class: 3283
+2016-10-31 01:19:35 DEBUG Main:195 - Node: WeNeedTrump Degree: 695 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: Stevenwhirsch99 Degree: 667 Class: 4363
+2016-10-31 01:19:35 DEBUG Main:195 - Node: bfraser747 Degree: 649 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: amjoyshow Degree: 644 Class: 6729
+2016-10-31 01:19:35 DEBUG Main:195 - Node: VivaLaAmes Degree: 634 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: magnifier661 Degree: 603 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: Pamela_Moore13 Degree: 598 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: AJDelgado13 Degree: 592 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: MichaelDelauzon Degree: 578 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: Cernovich Degree: 577 Class: 2321
+2016-10-31 01:19:35 DEBUG Main:195 - Node: KellyannePolls Degree: 576 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: 0HOUR1__ Degree: 571 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: AdamParkhomenko Degree: 568 Class: 6729
+2016-10-31 01:19:35 DEBUG Main:195 - Node: JoyAnnReid Degree: 566 Class: 6729
+2016-10-31 01:19:35 DEBUG Main:195 - Node: TeamTrump Degree: 559 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: vivelafra Degree: 551 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: Miami4Trump Degree: 551 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: PpollingNumbers Degree: 539 Class: 3283
+2016-10-31 01:19:35 DEBUG Main:195 - Node: CNN Degree: 534 Class: 5542
+2016-10-31 01:19:35 DEBUG Main:195 - Node: TheDailyEdge Degree: 534 Class: 6729
+2016-10-31 01:19:35 DEBUG Main:195 - Node: LOLGOP Degree: 512 Class: 3283
+2016-10-31 01:19:35 DEBUG Main:195 - Node: Bikers4Trump Degree: 496 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: peterdaou Degree: 494 Class: 6729
+2016-10-31 01:19:35 DEBUG Main:195 - Node: aravosis Degree: 487 Class: 6729
+2016-10-31 01:19:35 DEBUG Main:195 - Node: JackPosobiec Degree: 483 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: Lrihendry Degree: 480 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: sarahkendzior Degree: 470 Class: 3283
+2016-10-31 01:19:35 DEBUG Main:195 - Node: TrumpSuperPAC Degree: 465 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: IngrahamAngle Degree: 463 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: AnnCoulter Degree: 462 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: tponews Degree: 462 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: activist360 Degree: 446 Class: 6729
+2016-10-31 01:19:35 DEBUG Main:195 - Node: ChatRevolve Degree: 444 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: SoCal4Trump Degree: 440 Class: 2321
+2016-10-31 01:19:35 DEBUG Main:195 - Node: mattmfm Degree: 434 Class: 6005
+2016-10-31 01:19:35 DEBUG Main:195 - Node: SandraTXAS Degree: 426 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: hectormorenco Degree: 423 Class: 3390
+2016-10-31 01:19:35 DEBUG Main:195 - Node: jemalhudso12111 Degree: 416 Class: 3390
+2016-10-31 01:19:35 DEBUG Main:195 - Node: jonfavs Degree: 411 Class: 3283
+2016-10-31 01:19:35 DEBUG Main:195 - Node: DailyCaller Degree: 411 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: KGBVeteran Degree: 409 Class: 2321
+2016-10-31 01:19:35 DEBUG Main:195 - Node: AmyMek Degree: 404 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: ScottAdamsSays Degree: 389 Class: 2321
+2016-10-31 01:19:35 DEBUG Main:195 - Node: YoungDems4Trump Degree: 386 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: KamVTV Degree: 376 Class: 3840
+2016-10-31 01:19:35 DEBUG Main:195 - Node: ABC Degree: 375 Class: 5542
+2016-10-31 01:19:35 DEBUG Main:195 - Node: imillhiser Degree: 371 Class: 3286
+2016-10-31 01:19:35 DEBUG Main:195 - Node: Rambobiggs Degree: 369 Class: 2321
+2016-10-31 01:19:37 DEBUG Main:204 - GFX Export Elapsed Time: 1.766
+2016-10-31 01:19:48 DEBUG Main:211 - PNG Export Elapsed Time: 11.22

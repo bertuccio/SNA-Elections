@@ -7,3 +7,6 @@ outputs/*
 resources/*.csv
 logs/*
 *.db
+R/.RData
+R/.Rhistory
+	

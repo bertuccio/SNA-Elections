@@ -9,4 +9,5 @@ logs/*
 *.db
 R/.RData
 R/.Rhistory
+scripts/.Rhistory
 	

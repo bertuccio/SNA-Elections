@@ -3,14 +3,19 @@
 #install.package("SnowballC") # for text stemming
 #install.packages("wordcloud") # word-cloud generator
 #install.packages("RColorBrewer") # color palettes
-#install.packages("irlba") # for sparseMatrix
+# install.packages("irlba") # for sparseMatrix
 # install.packages("RSQLite")
 # install.packages("plyr")
 # install.packages("stringr")
 # install.packages("ggplot2")
-library(doBy)
+# install.packages("lubridate")
+# install.packages("dplyr")
+# install.packages("rJava")
+# install.packages("syuzhet")
 
-start.time.total <- Sys.time()
+
+
+
 # Load
 library("tm")
 library("SnowballC")
@@ -19,290 +24,185 @@ library("RColorBrewer")
 library("irlba")
 library("plyr")
 library(ggplot2) 
+library(RSQLite)
+library(lubridate)
+library(scales)
+library(doBy)
 
-score.sentiment = function(sentences, pos.words, neg.words, .progress='none')
+clean.text = function(txtclean)
 {
-  require(plyr)
-  require(stringr)
-  
-  scores = laply(sentences, function(sentence, pos.words, neg.words){
-    
-    sentence = tolower(sentence)
-    word.list = str_split(sentence, '\\s+')
-    words = unlist(word.list)
-    
-    pos.matches = match(words, pos.words)
-    neg.matches = match(words, neg.words)
-    
-    
-    pos.matches = !is.na(pos.matches)
-    neg.matches = !is.na(neg.matches)
-    
-    score = sum(pos.matches) - sum(neg.matches)
-    
-    return(score)
-  }, pos.words, neg.words, .progress=.progress)
-  
-  scores.df = data.frame(score=scores, text=sentences)
-  return(scores.df)
-}
-
-# # Assign the sqlite datbase and full path to a variable
-# dbfile = "C:/Users/pinwi/Documents/twitterdbf.db";
-# 
-# # Instantiate the dbDriver to a convenient object
-# sqlite = dbDriver("SQLite");
-# 
-# # connect to the sqlite file
-# con = dbConnect(sqlite,dbfile)
-
-# Read the text file
-
-
-# fileQuotedUsers.pp <- "C:/Users/pinwi/Documents/PROYECTO/quoted_official_users_pp.csv"
-# fileQuotedUsers.cs <- "C:/Users/pinwi/Documents/PROYECTO/quoted_official_users_ciudadanos.csv"
-# fileQuotedUsers.jxsi <- "C:/Users/pinwi/Documents/PROYECTO/quoted_official_users_jxsi.csv"
-
-fileQuotedUsers.pp <- "C:/Users/pinwi/Desktop/h_pp.csv"
-fileQuotedUsers.cs <- "C:/Users/pinwi/Desktop/h_cs.csv"
-fileQuotedUsers.jxsi <- "C:/Users/pinwi/Desktop/h_jxsi.csv"
-fileQuotedUsers.psc <- "C:/Users/pinwi/Desktop/h_psc.csv"
-fileQuotedUsers.cup <- "C:/Users/pinwi/Desktop/h_cup.csv"
-fileQuotedUsers.catsiqueespot <- "C:/Users/pinwi/Desktop/h_catsqp.csv"
-fileQuotedUsers.unio <- "C:/Users/pinwi/Desktop/h_unio.csv"
-
-sw <- readLines("stopwords.cat.txt",encoding = "UTF-8")
-
-positive <- c(scan("senticon.es.pos.txt", what='character',comment.char=';'),
-              scan("senticon.cat.pos.txt", what='character',comment.char=';'))
-negative <- c(scan("senticon.es.neg.txt", what='character',comment.char=';'),
-              scan("senticon.cat.neg.txt", what='character',comment.char=';'))
-
-# results = dbSendQuery(
-#   con, "select distinct(text) from tweets join hashtags on tweets.id=hashtags.tweet_id where quoted_status_id=-1 and quoted_user_id=-1 and retweet_id=-1 and in_reply_to_status_id=-1 and in_reply_to_user_id=-1 and (upper(hashtag)='27S' or  upper(hashtag)='ELECCIONESCATALANAS')"
-# );
-
-
-# Return results from a custom object to a data.frame
-
-# data = fetch(results, n=-1);
-# dbClearResult(results)
-# dbDisconnect(con)
-
-fileList <- c(fileQuotedUsers.pp, fileQuotedUsers.cs,fileQuotedUsers.jxsi,
-              fileQuotedUsers.psc,fileQuotedUsers.cup,fileQuotedUsers.catsiqueespot,
-              fileQuotedUsers.unio)
-partyList <- c("PP","C's", "JxSi","PSC","CUP","CatsiQueesPot","Unió")
-listaResultados <- NULL
-
-for (index in 1:length(fileList)) {
-  
-  
-  start.time.lectura <- Sys.time()
-  ##### inicio limpieza de datos #####
-  # text <- enc2utf8(data$text)
-  
-  path <- fileList[index]
-  
-  text <- readLines(path, encoding = "UTF-8")
   # remueve retweets
-  txtclean = gsub("(RT|via)((?:\\b\\W*@\\w+)+)", " ", text)
+  txtclean = gsub("(RT|via)((?:\\b\\W*@\\w+)+)", " ", txtclean)
   # remove @otragente
   txtclean = gsub("@\\w+", " ", txtclean)
   #remueve hashtags
   txtclean = gsub("#\\S+", " ", txtclean)
   # remueve links
   txtclean = gsub("htt\\S+", " ", txtclean)
-  # remueve simbolos de puntuaciÃ³n
+  # remueve simbolos de puntuacion
   txtclean = gsub("\\n", " ", txtclean,fixed = TRUE)
-  # remueve simbolos de puntuaciÃ³n
+  # remueve simbolos de puntuacion
   txtclean = gsub("\\r", " ", txtclean,fixed = TRUE)
-  # remueve simbolos de puntuaciÃ³n
+  # remueve simbolos de puntuacion
   txtclean = gsub("\\t", " ", txtclean,fixed = TRUE)
   txtclean = gsub("[^[:alnum:][:space:]']", " ", txtclean)
-  # remove nÃºmerosa
+  # remove numeros
   txtclean = gsub("[[:digit:]]", " ", txtclean)
-  ##### fin limpieza de datos #####
-  end.time.lectura <- Sys.time()
   
-  time.taken.lectura <- end.time.lectura - start.time.lectura
+  # remove blank spaces at the beginning
+  txtclean = gsub("^ ", "", txtclean)
+  # remove blank spaces at the end
+  txtclean = gsub(" $", "", txtclean)
   
-  
-  # Load the data as a corpus
-  docs <- Corpus(VectorSource(txtclean))
-  
-  # toSpace <-
-  #   content_transformer(function (x , pattern)
-  #     gsub(pattern, " ", x))
-  #docs <- tm_map(docs, toSpace, "/")
-  #docs <- tm_map(docs, toSpace, "@")
-  #docs <- tm_map(docs, toSpace, "\\|")
-  
-  start.time.stopwords <- Sys.time()
-  # carga archivo de palabras vacÃ�as personalizada y lo convierte a ASCII
-  #   sw <- readLines("stopwords.cat.txt",encoding = "UTF-8")
-  # remueve palabras vacÃ�as personalizada
-  docs = tm_map(docs, removeWords, sw)
-  
-  # Convert the text to lower case
-  docs <- tm_map(docs, content_transformer(tolower))
-  
-  # Remove numbers
-  docs <- tm_map(docs, removeNumbers)
-  
-  # Remove spanish common stopwords
-  docs <- tm_map(docs, removeWords, stopwords("spanish"))
-  
-  # Remove english common stopwords
-  # docs <- tm_map(docs, removeWords, stopwords("english"))
-  
-  
-  # Remove punctuations
-  docs <- tm_map(docs, removePunctuation)
-  
-  # Eliminate extra white spaces
-  docs <- tm_map(docs, stripWhitespace)
-  
-  
-  # Text stemming
-  # docs <- tm_map(docs, stemDocument, language = "spanish")
-  
-  end.time.stopwords <- Sys.time()
-  
-  time.taken.stopwords <- end.time.stopwords - start.time.stopwords
-  
-  start.time.matrix <- Sys.time()
-  
-  dtm <- TermDocumentMatrix(docs)
-  
-  # dtm.common = removeSparseTerms(dtm, 0.1)
-  
-  m <- sparseMatrix(
-    i = dtm$i, j = dtm$j, x = dtm$v,
-    dims = c(dtm$nrow, dtm$ncol), dimnames = dtm$dimnames
-  )
-  
-  # m <- as.matrix(dtm)
-  
-  v <- sort(rowSums(m),decreasing = TRUE)
-  d <- data.frame(word = names(v),freq = v)
-  
-  end.time.matrix <- Sys.time()
-  
-  time.taken.matrix <- end.time.matrix - start.time.matrix
-  
-  head(d,10)
-  set.seed(1234)
-  
-  pdf(paste("sentiment",as.character(partyList[index]),"pdf", sep = "."))
-  
-    wordcloud(
-      words = d$word, freq = d$freq, min.freq = 1,
-      max.words = 200, random.order = FALSE, rot.per = 0.35,
-      colors = brewer.pal(8, "Dark2")
-    )
-  
-    findFreqTerms(dtm, lowfreq = 2000)
-    findAssocs(dtm, terms = "catalunya", corlimit = 0.1)
-  
-  #write(t(d), file = "data");
-  
-    barplot(
-      d[1:10,]$freq, las = 2, names.arg = d[1:10,]$word,
-      col = "lightblue", main = "Most frequent words",
-      ylab = "Word frequencies"
-    )
-  
-  end.time.total <- Sys.time()
-  
-  time.taken.total <- end.time.total - start.time.total
-  
-  #   positive <- c(scan("senticon.es.pos.txt", what='character',comment.char=';'),
-  #                 scan("senticon.cat.pos.txt", what='character',comment.char=';'))
-  #   negative <- c(scan("senticon.es.neg.txt", what='character',comment.char=';'),
-  #                 scan("senticon.cat.neg.txt", what='character',comment.char=';'))
-  
-  dataframe<-data.frame(text=unlist(sapply(docs, '[', "content")), 
-                        stringsAsFactors=F)
-  
-  resultado <- score.sentiment(dataframe$text, positive, negative)
-  resultado$score
-  resultado$partido = partyList[index]
-  listaResultados <- c(listaResultados,list(resultado))
-  
-  
-  resultado <- score.sentiment(txtclean, positive, negative)
-  
-    qplot(x=resultado$score,geom="histogram") 
-    
-    slices <- c(sum(resultado$score < 0),sum(resultado$score == 0),sum(resultado$score > 0))
-    
-    labels <- c("Negative", "Neutral", "Positive")
-    percents  <- round(slices/sum(slices)*100)
-    labels <- paste(labels, percents) # add percents to labels
-    labels <- paste(labels,"%",sep="") # ad % to labels
-    
-    cols <- colorRampPalette(brewer.pal(3,"Set1"))(length(labels));
-    
-    pie(slices,labels, col=cols,
-        main="Sentiment of #27S") 
-    
-    "Lectura Fichero"; time.taken.lectura
-    "Stopwords"; time.taken.stopwords
-    "Matrix"; time.taken.matrix
-    "Total"; time.taken.total
-  
-    dev.off()
-  
-  all.scores <- rbind.fill(listaResultados)
-  
-  
+  return(txtclean)
 }
+
+setwd("/home/pinwi/workspace/SNAElections")
+# connect to the sqlite file
+con = dbConnect(drv=RSQLite::SQLite(), dbname="twitterdb.db")
+
+# get a list of all tables
+# alltables = dbListTables(con)
+# dbListFields(con, "Tweets")
+
+# print(alltables)
+
+
+ptm <- proc.time()
+tweets = dbGetQuery( con,'select CAST(id as TEXT) as id, replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace( lower(text), \'á\',\'a\'), \'Á\',\'a\'), \'à\',\'a\'), \'À\',\'a\'), \'è\',\'e\'), \'é\',\'e\'), \'È\',\'e\'),\'É\',\'e\'),\'Ì\',\'i\'),\'í\',\'i\'),\'Í\',\'i\'),\'ì\',\'i\'),\'ó\',\'o\') ,\'ò\',\'o\'),\'Ó\',\'o\') ,\'Ò\',\'o\') ,\'ú\',\'u\'), \'ù\',\'u\') ,\'Ú\',\'u\'), \'Ù\',\'u\') as text, 	strftime(\'%Y-%m-%d %H:%M:%S\',created_at/1000,\'unixepoch\') as created, CAST(retweet_id as TEXT) as retweet_id, CAST(quoted_user_id as TEXT) as quoted_user_id from tweets' )
+tweets$id = as.numeric(tweets$id)
+tweets$retweet_id = as.numeric(tweets$retweet_id)
+tweets$quoted_user_id = as.numeric(tweets$quoted_user_id)
+proc.time() - ptm
+
+# Encoding(tweets$text) <- "UTF-8"
+tweets$text <- iconv(tweets$text, 'UTF-8', 'ASCII')
+tweets$text = clean.text(tweets$text)
+tweets$created <- ymd_hms(tweets$created)
+tweets$created <- with_tz(tweets$created, "America/Chicago")
+
+tweets$type <- "tweet"
+tweets[tweets$retweet_id != -1,"type"] <- "RT"
+tweets[(tweets$quoted_user_id != -1),"type"] <- "quoted"
+tweets$type <- as.factor(tweets$type)
+tweets$type = factor(tweets$type,levels(tweets$type)[c(3,1,2)])
+
+
+# ggplot(data = tweets, aes(x = created, fill = type)) +
+#   geom_histogram() +
+#   xlab("Time") + ylab("Number of tweets") +
+#   scale_x_datetime(breaks = date_breaks("3 hours"), 
+#                    labels = date_format("%H")) +
+#   scale_fill_manual(values = c("midnightblue", "deepskyblue4", "aquamarine3"))
+
+# png(filename = paste0("outputs/images/proportion.png"), width=12, height=8, units="in", res=300)
 # 
-# pdf("sentiment&votes.pdf")
 # 
-# 
-# g = ggplot(data=all.scores, mapping=aes(x=score, fill=partido) )
-# g = g + geom_bar(binwidth=1)
-# g = g + facet_grid(partido~.) +  theme_bw() 
-# g
-# 
-# 
-# all.scores$very.pos.bool = all.scores$score >= 2
-# all.scores$very.neg.bool = all.scores$score <= -2
-# all.scores$very.pos = as.numeric( all.scores$very.pos.bool )
-# all.scores$very.neg = as.numeric( all.scores$very.neg.bool )
-# 
-# twitter.df = ddply(all.scores, 'partido', summarise,
-#                    very.pos.count=sum( very.pos ),
-#                    very.neg.count=sum( very.neg ) )
-# 
-# twitter.df$very.tot = twitter.df$very.pos.count +
-#   twitter.df$very.neg.count
-# 
-# twitter.df$score = round( 100 * twitter.df$very.pos.count /
-#                             twitter.df$very.tot )
-# orderBy(~-score, twitter.df)
-# 
-# #cis.score <- c(9.4,14.8,38.1,12.2,5.9,13.9,1.5)
-# votes.score <- c(8.2,17.93,39.54,12.74,8.2,8.94,2.51)
-# #partyList <- c("PP","C's", "JxSi","PSC","CUP","CatsiQueesPot","Unió")
-# #cis.score <- c(348444,734910,1620973,522209,336375,366494,102870)
-# #cis.score <- c(11,25,62,16,10,11,0)
-# votes.df <- data.frame(partyList,votes.score)
-# colnames(votes.df) = c('partido', 'score')
-# votes.df$score = as.numeric(votes.df$score)
-# 
-# compare.df = merge(twitter.df, votes.df, by='partido',
-#                    suffixes=c('.twitter', '.votes'))
-# 
-# 
-# 
-# g = ggplot( compare.df, aes(x=score.twitter, y=score.votes) ) +
-#   geom_point( aes(color=partido), size=5 ) +
-#   theme_bw() + theme( legend.position=c(0.2, 0.85) )
-# 
-# g = g + geom_smooth(aes(group=1), se=F, method="lm")
-# g
-# 
+# # ggplot(data = tweets, aes(x = created, fill = type)) +
+#   geom_bar(position = "fill") +
+#   xlab("Time") + ylab("Proportion of tweets") +
+#   scale_fill_manual(values = c("midnightblue", "deepskyblue4", "aquamarine3"))
 # dev.off()
+
+
+library(reshape2)
+library(dplyr)
+library(syuzhet)
+
+mySentiment <- get_nrc_sentiment(tweets$text)
+tweets <- cbind(tweets, mySentiment)
+
+sentimentTotals <- data.frame(colSums(tweets[,c(7:16)]))
+names(sentimentTotals) <- "count"
+sentimentTotals <- cbind("sentiment" = rownames(sentimentTotals), sentimentTotals)
+rownames(sentimentTotals) <- NULL
+
+png(filename = paste0("outputs/images/sentiment.png"), width=12, height=8, units="in", res=300)
+ggplot(data = sentimentTotals, aes(x = sentiment, y = count)) +
+  geom_bar(aes(fill = sentiment), stat = "identity") +
+  theme(legend.position = "none") +
+  xlab("Sentiment") + ylab("Total Count") + ggtitle("Total Sentiment Score for All Tweets")
+
+dev.off() 
+
+
+corpus = Corpus(VectorSource(tweets$text))
+
+corpus <- tm_map(corpus, content_transformer(tolower))
+corpus <- tm_map(corpus, removeNumbers)
+corpus <- tm_map(corpus, removeWords, stopwords("english"))
+corpus <- tm_map(corpus, removeWords, c("elections","election"))
+corpus <- tm_map(corpus, removePunctuation)
+corpus <- tm_map(corpus, stripWhitespace)
+
+dtm = TermDocumentMatrix(corpus)
+m <- sparseMatrix(
+  i = dtm$i, j = dtm$j, x = dtm$v,
+  dims = c(dtm$nrow, dtm$ncol), dimnames = dtm$dimnames
+)
+
+v <- sort(rowSums(m),decreasing=TRUE)
+d <- data.frame(word = names(v),freq=v)
+png(filename = paste0("outputs/images/wordcloud_total.png"), width=12, height=8, units="in", res=300)
+
+wordcloud(words = d$word, freq = d$freq, min.freq = 1,
+          max.words=400, random.order=FALSE, rot.per=0.35, 
+          colors=brewer.pal(8, "Dark2"))
+dev.off()
+
+# library(reshape2)
+# library(dplyr )
+# 
+# tweets$weekday <- wday(tweets$created, label = TRUE)
+# weeklysentiment <- tweets %>% group_by(weekday) %>% 
+#   summarise(anger = mean(anger), 
+#             anticipation = mean(anticipation), 
+#             disgust = mean(disgust), 
+#             fear = mean(fear), 
+#             joy = mean(joy), 
+#             sadness = mean(sadness), 
+#             surprise = mean(surprise), 
+#             trust = mean(trust)) %>% melt
+# names(weeklysentiment) <- c("weekday", "sentiment", "meanvalue")
+# 
+# ggplot(data = weeklysentiment, aes(x = weekday, y = meanvalue, group = sentiment)) +
+#   geom_line(size = 2.5, alpha = 0.7, aes(color = sentiment)) +
+#   geom_point(size = 0.5) +
+#   ylim(0, 0.6) +
+#   theme(legend.title=element_blank(), axis.title.x = element_blank()) +
+#   ylab("Average sentiment score") + 
+#   ggtitle("Sentiment During the Week")
+# tweets[(minute(tweets$created) == 0 & second(tweets$created) == 0),"timeonly"] <- NA
+# mean(is.na(tweets$timeonly))
+# class(tweets$timeonly) <- "POSIXct"
+# 
+# ggplot(data = tweets, aes(x = created, fill = type)) +
+#   geom_histogram() +
+#   theme(legend.position = "none") +
+#   xlab("Time") + ylab("Number of tweets") + 
+#   scale_x_datetime(breaks = date_breaks("2 days"), 
+#                    labels = date_format("%d")) +
+#   scale_fill_gradient(low = "midnightblue", high = "aquamarine4")
+# 
+# 
+# print(tweets[[1]])
+# corpus = Corpus(VectorSource(text))
+# 
+# corpus <- tm_map(corpus, content_transformer(tolower))
+# corpus <- tm_map(corpus, removeNumbers)
+# corpus <- tm_map(corpus, removeWords, stopwords("english"))
+# corpus <- tm_map(corpus, removeWords, c("elections","election"))
+# corpus <- tm_map(corpus, removePunctuation)
+# corpus <- tm_map(corpus, stripWhitespace)
+# # count the areas in the SQLite table
+# p2 = dbGetQuery( con,'select count(*) from areastable' )
+# # find entries of the DB from the last week
+# p3 = dbGetQuery(con, "SELECT population WHERE DATE(timeStamp) < DATE('now', 'weekday 0', '-7 days')")
+# #Clear the results of the last query
+# dbClearResult(p3)
+# #Select population with managerial type of job
+# p4 = dbGetQuery(con, "select * from populationtable where jobdescription like '%manager%'")
+# 
+
+
+

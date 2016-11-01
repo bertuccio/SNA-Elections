@@ -11,8 +11,8 @@
 # Load
 library(tm)
 library(SnowballC)
-library(wordcloud)
 library(RColorBrewer)
+library(wordcloud)
 # library(irlba)
 library(plyr)
 library(ggplot2) 

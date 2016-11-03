@@ -6,5 +6,9 @@ do
 	then
 		./scripts/wordcloud.sh
 	fi
+	if [ "$i" == "sentiment" ]
+	then
+		./scripts/sent.sh
+	fi	
 done
 

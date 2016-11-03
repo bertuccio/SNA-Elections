@@ -27,6 +27,9 @@ ptm <- proc.time()
 geo_tweets = dbGetQuery( con,'select users.screen_name, geo_lat as lat, geo_lng as lon from tweets, users where geo_lat<>-1 and user_id=users.id')
 proc.time() - ptm
 
+
+write.csv(x = geo_tweets, file = "geo_tweets.csv",row.names = FALSE)
+
 # make up some points 
 pts.euref <- SpatialPoints(cbind(lon=geo_tweets$lon,lat=geo_tweets$lat))
 # proj4string(pts.euref) <- CRS("+proj=utm +zone=35 +ellps=GRS80 +units=m +no_defs")

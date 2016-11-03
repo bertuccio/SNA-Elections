@@ -128,12 +128,10 @@ dev.off()
 
 corpus = Corpus(VectorSource(tweets$text))
 
-corpus <- tm_map(corpus, content_transformer(tolower))
-corpus <- tm_map(corpus, removeNumbers)
+
 corpus <- tm_map(corpus, removeWords, stopwords("english"))
 corpus <- tm_map(corpus, removeWords, c("elections","election"))
-corpus <- tm_map(corpus, removePunctuation)
-corpus <- tm_map(corpus, stripWhitespace)
+
 
 dtm = TermDocumentMatrix(corpus)
 m <- sparseMatrix(
@@ -143,11 +141,18 @@ m <- sparseMatrix(
 
 v <- sort(rowSums(m),decreasing=TRUE)
 d <- data.frame(word = names(v),freq=v)
-png(filename = paste0("outputs/images/wordcloud_total.png"), width=12, height=8, units="in", res=300)
 
+
+png(filename = paste0("outputs/images/wordcloud_total.png"), width=12, height=8, units="in", res=300)
 wordcloud(words = d$word, freq = d$freq, min.freq = 1,
           max.words=400, random.order=FALSE, rot.per=0.35, 
           colors=brewer.pal(8, "Dark2"))
+dev.off()
+
+
+png(filename = paste0("outputs/images/wordbars_total.png"), width=12, height=8, units="in", res=300)barplot(d[1:10,]$freq, las = 2, names.arg = d[1:10,]$word,
+        col ="lightblue", main ="Most frequent words",
+        ylab = "Word frequencies")
 dev.off()
 
 # library(reshape2)

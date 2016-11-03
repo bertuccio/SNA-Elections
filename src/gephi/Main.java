@@ -39,6 +39,7 @@ import org.gephi.appearance.api.Function;
 import org.gephi.appearance.api.Partition;
 import org.gephi.appearance.api.PartitionFunction;
 import org.gephi.appearance.plugin.PartitionElementColorTransformer;
+import org.gephi.appearance.plugin.RankingLabelSizeTransformer;
 import org.gephi.appearance.plugin.palette.Palette;
 import org.gephi.appearance.plugin.palette.PaletteManager;
 import org.gephi.filters.api.FilterController;
@@ -57,6 +58,7 @@ public class Main {
 		boolean gfxExportArg = false;
 		boolean pngExportArg = false;
 		boolean filterDegree = false;
+		boolean filterLabel = false;
 
 		String filename = "retweet";
 
@@ -92,6 +94,9 @@ public class Main {
 			case "quote":
 				filename = args[i];
 				break;
+			case "-filterLabel":
+				filterLabel = true;
+				break;
 			}
 		}
 		System.out.println("Importing csv : process_" + filename + "_out.csv");
@@ -105,6 +110,7 @@ public class Main {
 		AppearanceController appearanceController = Lookup.getDefault().lookup(AppearanceController.class);
 		AppearanceModel appearanceModel = appearanceController.getModel();
 		GraphModel graphModel = Lookup.getDefault().lookup(GraphController.class).getGraphModel();
+		FilterController filterController = Lookup.getDefault().lookup(FilterController.class);
 
 		try {
 			ImportManager.importFile("process_" + filename + "_out.csv", EdgeDirectionDefault.DIRECTED, true,
@@ -152,28 +158,18 @@ public class Main {
 		elapsedTime = stopTime - startTime;
 		logger.debug("Layout Elapsed Time: " + elapsedTime * 0.001);
 
-		// Preview
-		startTime = System.currentTimeMillis();
-		PreviewModel model = Lookup.getDefault().lookup(PreviewController.class).getModel();
-		// model.getProperties().putValue(PreviewProperty.SHOW_NODE_LABELS,
-		// Boolean.TRUE);
-		model.getProperties().putValue(PreviewProperty.EDGE_CURVED, Boolean.FALSE);
-		// model.getProperties().putValue(PreviewProperty.EDGE_COLOR, new
-		// EdgeColor(Color.GRAY));
-		model.getProperties().putValue(PreviewProperty.EDGE_THICKNESS, new Float(0.3f));
-		model.getProperties().putValue(PreviewProperty.NODE_BORDER_WIDTH, new Float(0.2f));
-		// model.getProperties().putValue(PreviewProperty.NODE_LABEL_FONT,
-		// model.getProperties().getFontValue(PreviewProperty.NODE_LABEL_FONT).deriveFont(8));
-		stopTime = System.currentTimeMillis();
-		elapsedTime = stopTime - startTime;
-		logger.debug("Preview Elapsed Time: " + elapsedTime * 0.001);
-
+	
+		
+		NodeIterable nodes = graphModel.getDirectedGraph().getNodes();
+		List<Node> nodeList = Arrays.asList(nodes.toArray());
+		
+		Degree degree = new Degree();
+		degree.execute(graphModel);
+		
 		// Filter, remove degree < 10
-
 		if (filterDegree) {
 			
 			System.out.println("Filtering");
-			FilterController filterController = Lookup.getDefault().lookup(FilterController.class);
 			DegreeRangeFilter degreeFilter = new DegreeRangeFilter();
 			degreeFilter.setRange(new Range(10, Integer.MAX_VALUE));
 			// Remove nodes with degree < 10
@@ -182,25 +178,91 @@ public class Main {
 			graphModel.setVisibleView(view); // Set the filter result as the
 												// visible view
 		}
-		Degree degree = new Degree();
-		degree.execute(graphModel);
+		
+		
+		
+		if(filterLabel) {
+			
+			
+			Collections.sort(nodeList, new Comparator<Node>() {
+				public int compare(Node n1, Node n2) {
+
+					return ((Integer) n2.getAttribute(Degree.DEGREE)).compareTo((Integer) n1.getAttribute(Degree.DEGREE));
+				}
+			});
+			if(!nodeList.isEmpty()) {
+				
+				
+				Integer maxDegree = (Integer) nodeList.get(0).getAttribute(Degree.DEGREE);
+				
+				long filterDegreeValue = Math.round(Math.floor(maxDegree.intValue()/4.));
+				
+				for (Node n : nodeList) {
+					Integer nodeDegree = (Integer) n.getAttribute(Degree.DEGREE);
+					if(nodeDegree.intValue() < filterDegreeValue) {
+						n.setLabel("");
+					}		
+				
+				}
+				
+		        Function degreeRanking = appearanceModel.getNodeFunction(graph, AppearanceModel.GraphFunction.NODE_DEGREE, RankingLabelSizeTransformer.class);
+		        RankingLabelSizeTransformer labelSizeTransformer = (RankingLabelSizeTransformer) degreeRanking.getTransformer();
+		        labelSizeTransformer.setMinSize(5);
+		        labelSizeTransformer.setMaxSize(15);
+		        appearanceController.transform(degreeRanking);
+				
+				
+//				System.out.println(filterDegreeValue);
+//				DegreeRangeFilter degreeFilter = new DegreeRangeFilter();
+//				degreeFilter.setRange(new Range(100, Integer.MAX_VALUE));
+//				// Remove nodes with degree < 10
+//				Query query = filterController.createQuery(degreeFilter);
+//				filterController.exportToLabelVisible(query);	
+				
+				
+				
+			}
+			
+			
+		}
+		
+		
+		
 		// Column modColumn =
 		// graphModel.getNodeTable().getColumn(Degree.INDEGREE);
 
-		NodeIterable nodes = graphModel.getDirectedGraph().getNodes();
 
 		// Node node2 = directedGraph.getNode("n2").getAttributeKeys()
-		List<Node> nodes2 = Arrays.asList(nodes.toArray());
-		Collections.sort(nodes2, new Comparator<Node>() {
+		
+		Collections.sort(nodeList, new Comparator<Node>() {
 			public int compare(Node n1, Node n2) {
 
 				return ((Integer) n2.getAttribute(Degree.DEGREE)).compareTo((Integer) n1.getAttribute(Degree.DEGREE));
 			}
 		});
-		for (Node n : nodes2.subList(0, 79)) {
+		for (Node n : nodeList.subList(0, 79)) {
 			logger.debug("Node: " + n.getId() + " Degree: " + n.getAttribute(Degree.DEGREE) + " Class: "
 					+ n.getAttribute(Modularity.MODULARITY_CLASS));
+		
 		}
+		
+		
+		// Preview
+		startTime = System.currentTimeMillis();
+		PreviewModel model = Lookup.getDefault().lookup(PreviewController.class).getModel();
+		model.getProperties().putValue(PreviewProperty.SHOW_NODE_LABELS, Boolean.TRUE);
+		model.getProperties().putValue(PreviewProperty.EDGE_CURVED, Boolean.FALSE);
+		// model.getProperties().putValue(PreviewProperty.EDGE_COLOR, new
+		// EdgeColor(Color.GRAY));
+		model.getProperties().putValue(PreviewProperty.EDGE_THICKNESS, new Float(0.3f));
+		model.getProperties().putValue(PreviewProperty.NODE_BORDER_WIDTH, new Float(0.2f));
+		model.getProperties().putValue(PreviewProperty.NODE_LABEL_PROPORTIONAL_SIZE, Boolean.TRUE);
+		model.getProperties().putValue(PreviewProperty.NODE_LABEL_FONT,
+				model.getProperties().getFontValue(PreviewProperty.NODE_LABEL_FONT).deriveFont(14));
+		stopTime = System.currentTimeMillis();
+		elapsedTime = stopTime - startTime;
+		logger.debug("Preview Elapsed Time: " + elapsedTime * 0.001);
+
 
 		if (gfxExportArg) {
 			System.out.println("Exporting GFX");
